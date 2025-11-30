@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 
+/* Enable dark mode variant for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-    --color-primary: #2b85ff;
-    --color-secondary: #ef863e;
+    --color-primary: #C97D60;
+    --color-secondary: #8B9A8B;
+    --color-accent: #E8B4A0;
+    --color-cream: #FAF7F2;
+    --color-cream-light: #F5F1EB;
+    --color-charcoal: #3A3A3A;
+    --color-border: #E5DED5;
 }
 
 @layer base{
@@ -12,22 +20,85 @@
     }
 
     body{
-        background-color: #fdfeff;
+        background-color: #FAF7F2;
         overflow-x: hidden;
+        color: #3A3A3A;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Dark mode styles */
+    html.dark body {
+        background-color: #1A1A1A;
+        color: #E5E5E5;
+    }
+    
+    html.dark {
+        color-scheme: dark;
     }
 }
 
 @layer components{
     .input-box{
-        @apply w-full text-sm bg-transparent border-[1.5px]  border-[#bebaba]  px-5 py-3 rounded mb-4 outline-none;
+        @apply w-full text-sm bg-[#FAF7F2] dark:bg-[#1A1A1A] border-[1.5px] border-[#E5DED5] dark:border-[#404040] px-5 py-3 rounded-lg mb-4 outline-none focus:ring-2 focus:ring-[#C97D60] focus:border-[#C97D60] transition-all text-[#3A3A3A] dark:text-[#E5E5E5] placeholder:text-[#8B9A8B] dark:placeholder:text-[#808080];
     }
     .btn-primary{
-        @apply w-full text-sm bg-primary text-white p-2 rounded my-1 hover:bg-blue-600;
+        @apply w-full text-sm bg-[#C97D60] text-white p-2 rounded-lg my-1 hover:bg-[#B86A4F] transition-all font-medium;
     }
     .icons-btn{
-        @apply text-xl text-slate-300 cursor-pointer hover:text-primary;
+        @apply text-xl text-[#8B9A8B] dark:text-[#808080] cursor-pointer hover:text-[#C97D60] transition-colors;
     }
     .input-label{
-        @apply text-xs text-slate-400;
+        @apply text-xs text-[#8B9A8B] dark:text-[#B0B0B0] font-medium;
     }
+}
+
+@layer utilities {
+    @keyframes blob {
+        0% {
+            transform: translate(0px, 0px) scale(1);
+        }
+        33% {
+            transform: translate(30px, -50px) scale(1.1);
+        }
+        66% {
+            transform: translate(-20px, 20px) scale(0.9);
+        }
+        100% {
+            transform: translate(0px, 0px) scale(1);
+        }
+    }
+    
+    .animate-blob {
+        animation: blob 7s infinite;
+    }
+    
+    .animation-delay-2000 {
+        animation-delay: 2s;
+    }
+    
+    .animation-delay-4000 {
+        animation-delay: 4s;
+    }
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F5F1EB;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #1A1A1A;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #C97D60;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #B86A4F;
 }

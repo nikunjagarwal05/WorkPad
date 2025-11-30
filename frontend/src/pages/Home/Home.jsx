@@ -147,16 +147,16 @@ const Home = () => {
     }, []);
 
     return(
-        <div>
+        <div className="min-h-screen bg-[#FAF7F2] dark:bg-[#1A1A1A] transition-colors">
             <Navbar 
                 userInfo={userInfo} 
                 onSearchNote={onSearchNote} 
                 handleClearSearch={handleClearSearch} 
             />
 
-            <div className="container mx-auto ">
+            <div className="container mx-auto px-4 sm:px-6">
                 {allNotes.length > 0 ? (
-                    <div className="grid grid-cols-3 gap-4 mt-8 ">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-8">
                         {allNotes.map((item, index) => (
                             <NoteCard 
                                 key={item._id}
@@ -185,12 +185,12 @@ const Home = () => {
             </div>
 
             <button 
-                className="w-16 h-16 flex items-center justify-center rounded-2xl bg-blue-600 hover:bg-blue-900 absolute right-10 bottom-10" 
+                className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center rounded-2xl bg-[#C97D60] hover:bg-[#B86A4F] absolute right-4 sm:right-10 bottom-4 sm:bottom-10 shadow-lg transition-all z-10" 
                 onClick={() => {
                     setOpenAddEditModal({ isShown: true, type: "add", data: null });
                 }}
             >
-                <MdAdd className="text-[32px] text-white"/>
+                <MdAdd className="text-[28px] sm:text-[32px] text-white"/>
             </button>
 
             <Modal 
@@ -198,11 +198,11 @@ const Home = () => {
                 onRequestClose={() => {}}
                 style={{
                     overlay: {
-                        backgroundColor: "rgba(0,0,0,0.2)",
+                        backgroundColor: "rgba(58, 58, 58, 0.5)",
                     },
                 }}
                 contentLabel=""
-                className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 overflow-scroll"
+                className="w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] max-h-[90vh] bg-white dark:bg-[#2A2A2A] rounded-lg mx-auto mt-8 sm:mt-14 p-4 sm:p-5 sm:p-6 overflow-scroll border border-[#E5DED5] dark:border-[#404040] transition-colors"
             >
                 <AddEditNotes 
                     type={openAddEditModal.type}
