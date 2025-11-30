@@ -15,10 +15,10 @@ function App() {
         <div>
           <ThemeToggle />
           <Routes>
-            <Route path="/" exact element={<Front />} />
-            <Route path="/dashboard" exact element={<Home />} />
-            <Route path="/signup" exact element={<SignUp />} />
-            <Route path="/login" exact element={<Login />} />
+            <Route path="/" element={<Front />} />
+            <Route path="/dashboard" element={<Home />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
       </Router>

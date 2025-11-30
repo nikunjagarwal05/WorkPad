@@ -48,7 +48,7 @@ const SignUp = () => {
             }
             if (response.data && response.data.accessToken) {
                 localStorage.setItem("token", response.data.accessToken)
-                navigate('/dashboard')
+                navigate("/dashboard", { replace: true })
             }
         } catch (error) {
             // Handle Sign Up error

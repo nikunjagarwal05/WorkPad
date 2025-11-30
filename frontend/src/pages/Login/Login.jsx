@@ -34,13 +34,24 @@ const Login = () => {
 
       if (response.data && response.data.accessToken) {
         localStorage.setItem("token", response.data.accessToken);
-        navigate("/dashboard");
+        navigate("/dashboard", { replace: true });
       }
     } catch (error) {
-      if (error.response && error.response.data && error.response.data.message) {
-        setError(error.response.data.message);
+      console.error("Login error:", error);
+      
+      if (error.response) {
+        // Server responded with error status
+        if (error.response.data && error.response.data.message) {
+          setError(error.response.data.message);
+        } else {
+          setError(`Server error: ${error.response.status} - ${error.response.statusText}`);
+        }
+      } else if (error.request) {
+        // Request was made but no response received
+        setError("Unable to connect to server. Please check your internet connection or try again later.");
       } else {
-        setError("An unexpected error occurred. Please try again.");
+        // Something else happened
+        setError(error.message || "An unexpected error occurred. Please try again.");
       }
     }
   };

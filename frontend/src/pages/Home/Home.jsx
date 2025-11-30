@@ -202,7 +202,7 @@ const Home = () => {
                     },
                 }}
                 contentLabel=""
-                className="w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] max-h-[90vh] bg-white dark:bg-[#2A2A2A] rounded-lg mx-auto mt-8 sm:mt-14 p-4 sm:p-5 sm:p-6 overflow-scroll border border-[#E5DED5] dark:border-[#404040] transition-colors"
+                className="w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] max-h-[90vh] bg-white dark:bg-[#2A2A2A] rounded-lg mx-auto mt-8 sm:mt-14 p-4 sm:p-6 overflow-scroll border border-[#E5DED5] dark:border-[#404040] transition-colors"
             >
                 <AddEditNotes 
                     type={openAddEditModal.type}
