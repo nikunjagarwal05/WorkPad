@@ -44,12 +44,9 @@ const ProfileInfo = ({ userInfo, onLogout }) => {
 
             {/* Dropdown Menu */}
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-48 sm:w-56 bg-white dark:bg-[#2A2A2A] rounded-xl shadow-xl border border-[#E5DED5] dark:border-[#404040] overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute left-0 mt-2 w-48 sm:w-56 bg-white dark:bg-[#2A2A2A] rounded-xl shadow-xl border border-[#E5DED5] dark:border-[#404040] overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                     <div className="px-4 py-3 border-b border-[#E5DED5] dark:border-[#404040]">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 flex items-center justify-center rounded-full text-sm font-semibold text-white bg-gradient-to-br from-[#C97D60] to-[#B86A4F]">
-                                {getInitials(userInfo?.fullName)}
-                            </div>
                             <div>
                                 <p className="text-sm font-semibold text-[#3A3A3A] dark:text-[#E5E5E5]">
                                     {userInfo?.fullName}
